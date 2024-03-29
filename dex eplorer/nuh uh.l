@@ -5151,7 +5151,7 @@ local function main()
 			--local thumbSelectColor = Color3.new(140/255,140/255,140/255)
 			button1.InputBegan:Connect(function(input)
 				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch and not buttonPress and self:CanScrollUp() then button1.BackgroundTransparency = 0.8 end
-				if input.UserInputType ~= Enum.UserInputType.MouseButton1 or not self:CanScrollUp() then return end
+				if input.UserInputType ~= Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch or not self:CanScrollUp() then return end
 				buttonPress = true
 				button1.BackgroundTransparency = 0.5
 				if self:CanScrollUp() then self:ScrollUp() self.Scrolled:Fire() end
@@ -5176,14 +5176,14 @@ local function main()
 			end)
 			button2.InputBegan:Connect(function(input)
 				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch and not buttonPress and self:CanScrollDown() then button2.BackgroundTransparency = 0.8 end
-				if input.UserInputType ~= Enum.UserInputType.MouseButton1 or not self:CanScrollDown() then return end
+				if input.UserInputType ~= Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch or not self:CanScrollDown() then return end
 				buttonPress = true
 				button2.BackgroundTransparency = 0.5
 				if self:CanScrollDown() then self:ScrollDown() self.Scrolled:Fire() end
 				local buttonTick = tick()
 				local releaseEvent
 				releaseEvent = user.InputEnded:Connect(function(input)
-					if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+					if input.UserInputType ~= Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then return end
 					releaseEvent:Disconnect()
 					if checkMouseInGui(button2) and self:CanScrollDown() then button2.BackgroundTransparency = 0.8 else button2.BackgroundTransparency = 1 end
 					buttonPress = false
@@ -5202,7 +5202,7 @@ local function main()
 
 			scrollThumb.InputBegan:Connect(function(input)
 				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch and not thumbPress then scrollThumb.BackgroundTransparency = 0.2 scrollThumb.BackgroundColor3 = self.ThumbSelectColor end
-				if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+				if input.UserInputType ~= Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then return end
 
 				local dir = self.Horizontal and "X" or "Y"
 				local lastThumbPos = nil
@@ -5216,7 +5216,7 @@ local function main()
 				local releaseEvent
 				local mouseEvent
 				releaseEvent = user.InputEnded:Connect(function(input)
-					if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+					if input.UserInputType ~= Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then return end
 					releaseEvent:Disconnect()
 					if mouseEvent then mouseEvent:Disconnect() end
 					if checkMouseInGui(scrollThumb) then scrollThumb.BackgroundTransparency = 0.2 else scrollThumb.BackgroundTransparency = 0 scrollThumb.BackgroundColor3 = self.ThumbColor end
@@ -5245,7 +5245,7 @@ local function main()
 				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch and not thumbPress then scrollThumb.BackgroundTransparency = 0 scrollThumb.BackgroundColor3 = self.ThumbColor end
 			end)
 			scrollThumbFrame.InputBegan:Connect(function(input)
-				if input.UserInputType ~= Enum.UserInputType.MouseButton1 or checkMouseInGui(scrollThumb) then return end
+				if input.UserInputType ~= Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch or checkMouseInGui(scrollThumb) then return end
 
 				local dir = self.Horizontal and "X" or "Y"
 				local scrollDir = 0
@@ -5268,7 +5268,7 @@ local function main()
 				local thumbFrameTick = tick()
 				local releaseEvent
 				releaseEvent = user.InputEnded:Connect(function(input)
-					if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+					if input.UserInputType ~= Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then return end
 					releaseEvent:Disconnect()
 					thumbFramePress = false
 				end)
