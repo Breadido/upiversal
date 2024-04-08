@@ -1,6 +1,6 @@
-local nuhuh = {} -- i dont have any names for this ui library soo im just naming this ui library NUHUH
+local ReaperHub = {}
 
-function nuhuh:DraggingEnabled(frame, parent)
+function ReaperHub:DraggingEnabled(frame, parent)
 	parent = parent or frame
 
 	local gui = parent
@@ -46,16 +46,16 @@ end
 
 
 local firstTabOpened = false
-function nuhuh.SetupUI(config)
+function ReaperHub.SetupUI(config)
 	config = config or {}
-	config.Title = config.Title or "nuh uh ui library"
+	config.Title = config.Title or "Reaper Hub UI Library"
 	
-	local NUHUHuilibrary = Instance.new("ScreenGui")
-	local fuckfurries = Instance.new("Frame")
+	local ReaperHubUILibrary = Instance.new("ScreenGui")
+	local ReaperHubUI = Instance.new("Frame")
 	local TopBar = Instance.new("Frame")
 	local TitleIcock = Instance.new("ImageLabel")
 	local Title = Instance.new("TextLabel")
-	local destroyy = Instance.new("ImageButton")
+	local Destroy = Instance.new("ImageButton")
 	local Background = Instance.new("ImageLabel")
 	local minimized = Instance.new("ImageButton")
 	local ContainerForAllShitz = Instance.new("Frame")
@@ -63,23 +63,23 @@ function nuhuh.SetupUI(config)
 	local KontolListLayout = Instance.new("UIListLayout")
 	local TabContainer = Instance.new("Frame")
 	local Title_2 = Instance.new("TextLabel")
-	nuhuh:DraggingEnabled(TopBar, fuckfurries)
+	ReaperHub:DraggingEnabled(TopBar, ReaperHubUI)
 	
 
-	NUHUHuilibrary.Name = "NUH UH ui library"
-	NUHUHuilibrary.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-	NUHUHuilibrary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	ReaperHubUILibrary.Name = "Reaper Hub UI Library"
+	ReaperHubUILibrary.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	ReaperHubUILibrary.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-	fuckfurries.Name = "fuckfurries"
-	fuckfurries.Parent = NUHUHuilibrary
-	fuckfurries.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-	fuckfurries.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	fuckfurries.BorderSizePixel = 0
-	fuckfurries.Position = UDim2.new(0.288043469, 0, 0.262357414, 0)
-	fuckfurries.Size = UDim2.new(0, 360, 0, 240)
+	ReaperHubUI.Name = "Reaper Hub UI"
+	ReaperHubUI.Parent = ReaperHubUILibrary
+	ReaperHubUI.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	ReaperHubUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ReaperHubUI.BorderSizePixel = 0
+	ReaperHubUI.Position = UDim2.new(0.288043469, 0, 0.262357414, 0)
+	ReaperHubUI.Size = UDim2.new(0, 360, 0, 240)
 
 	TopBar.Name = "TopBar"
-	TopBar.Parent = fuckfurries
+	TopBar.Parent = ReaperHubUI
 	TopBar.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 	TopBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	TopBar.BorderSizePixel = 0
@@ -118,21 +118,21 @@ function nuhuh.SetupUI(config)
 	Title_2.Position = UDim2.new(0.333333433, 0, 0, 0)
 	Title_2.Size = UDim2.new(0, 80, 0, 30)
 	Title_2.Font = Enum.Font.GothamBold
-	Title_2.Text = " | Universal"
+	Title_2.Text = " | Universal Tools"
 	Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Title_2.TextSize = 14.000
 	Title_2.TextXAlignment = Enum.TextXAlignment.Left
 	
-	destroyy.Name = "destroyy"
-	destroyy.Parent = TopBar
-	destroyy.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	destroyy.BackgroundTransparency = 1.000
-	destroyy.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	destroyy.BorderSizePixel = 0
-	destroyy.Position = UDim2.new(0.933333337, 0, 0.233333334, 0)
-	destroyy.Size = UDim2.new(0, 15, 0, 15)
-	destroyy.Modal = true
-	destroyy.Image = "rbxassetid://7743878857"
+	Destroy.Name = "Destroy"
+	Destroy.Parent = TopBar
+	Destroy.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Destroy.BackgroundTransparency = 1.000
+	Destroy.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Destroy.BorderSizePixel = 0
+	Destroy.Position = UDim2.new(0.933333337, 0, 0.233333334, 0)
+	Destroy.Size = UDim2.new(0, 15, 0, 15)
+	Destroy.Modal = true
+	Destroy.Image = "rbxassetid://7743878857"
 
 	Background.Name = "Background"
 	Background.Parent = TopBar
@@ -156,7 +156,7 @@ function nuhuh.SetupUI(config)
 	minimized.Image = "rbxassetid://7734000129"
 
 	ContainerForAllShitz.Name = "ContainerForAllShitz"
-	ContainerForAllShitz.Parent = fuckfurries
+	ContainerForAllShitz.Parent = ReaperHubUI
 	ContainerForAllShitz.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 	ContainerForAllShitz.BackgroundTransparency = 1.000
 	ContainerForAllShitz.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -191,8 +191,8 @@ function nuhuh.SetupUI(config)
 	TabContainer.Position = UDim2.new(0.0116279069, 0, 0.15143837, 0)
 	TabContainer.Size = UDim2.new(0, 335, 0, 160)
 	
-	destroyy.MouseButton1Click:Connect(function()
-		NUHUHuilibrary.Enabled = false
+	Destroy.MouseButton1Click:Connect(function()
+		ReaperHubUILibrary.Enabled = false
 	end)
 	
 	local minimizedd = false
@@ -201,10 +201,10 @@ function nuhuh.SetupUI(config)
 			minimizedd = true
 			Background.Visible = false
 			ContainerForAllShitz.Visible = false
-			game:GetService("TweenService"):Create(fuckfurries, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {Size = UDim2.new(0,360,0,30)}):Play()
+			game:GetService("TweenService"):Create(ReaperHubUI, TweenInfo.new(0.2, Enum.EasingStyle.Linear), {Size = UDim2.new(0,360,0,30)}):Play()
 		else
 			minimizedd = false
-			local t = game:GetService("TweenService"):Create(fuckfurries, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Size = UDim2.new(0,360,0,240)})
+			local t = game:GetService("TweenService"):Create(ReaperHubUI, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Size = UDim2.new(0,360,0,240)})
 			t:Play()
 			repeat wait() until t.PlaybackState == Enum.PlaybackState.Completed
 			Background.Visible = true
@@ -351,7 +351,7 @@ function nuhuh.SetupUI(config)
 		
 		function UiThingz.CreateSlider(sconfig)
 			sconfig = sconfig or {}
-			sconfig.Text = sconfig.Text or "how many times you want to kys?"
+			sconfig.Text = sconfig.Text or "Slider"
 			sconfig.Minimum = sconfig.Minimum or 0
 			sconfig.Maximum = sconfig.Maximum or 50
 			sconfig.Default = sconfig.Default or 25
@@ -428,7 +428,7 @@ function nuhuh.SetupUI(config)
 			local Bar = Fill
 			local Sliderbox = MainSlider
 			local SliderValueText = Value
-			local SizeChia = 135
+			local XSize = 135
 			local DefaultValue = sconfig.Default
 
 			if DefaultValue then 
@@ -439,30 +439,30 @@ function nuhuh.SetupUI(config)
 			end
 
 			Sliderbox.MouseButton1Down:Connect(function()
-				local value = Precise and  tonumber(string.format("%.2f",(((tonumber(Max_Value) - tonumber(Min_Value)) / SizeChia) * Bar.AbsoluteSize.X) + tonumber(Min_Value))) or math.floor((((tonumber(Max_Value) - tonumber(Min_Value)) / SizeChia) * Bar.AbsoluteSize.X) + tonumber(Min_Value))
+				local value = Precise and  tonumber(string.format("%.2f",(((tonumber(Max_Value) - tonumber(Min_Value)) / XSize) * Bar.AbsoluteSize.X) + tonumber(Min_Value))) or math.floor((((tonumber(Max_Value) - tonumber(Min_Value)) / SizeChia) * Bar.AbsoluteSize.X) + tonumber(Min_Value))
 
 				pcall(function()
 					sconfig.Callback(tonumber(value))					
 					SliderValueText.Text = value
 				end)
-				Bar.Size = UDim2.new(0, math.clamp(mouse.X - Bar.AbsolutePosition.X, 0, SizeChia), 0, 20)
+				Bar.Size = UDim2.new(0, math.clamp(mouse.X - Bar.AbsolutePosition.X, 0, XSize), 0, 20)
 				moveconnection = mouse.Move:Connect(function()   
-					local value = Precise and  tonumber(string.format("%.2f",(((tonumber(Max_Value) - tonumber(Min_Value)) / SizeChia) * Bar.AbsoluteSize.X) + tonumber(Min_Value))) or math.floor((((tonumber(Max_Value) - tonumber(Min_Value)) / SizeChia) * Bar.AbsoluteSize.X) + tonumber(Min_Value))
+					local value = Precise and  tonumber(string.format("%.2f",(((tonumber(Max_Value) - tonumber(Min_Value)) / XSize) * Bar.AbsoluteSize.X) + tonumber(Min_Value))) or math.floor((((tonumber(Max_Value) - tonumber(Min_Value)) / SizeChia) * Bar.AbsoluteSize.X) + tonumber(Min_Value))
 					pcall(function()
 						sconfig.Callback(tonumber(value))
 						SliderValueText.Text = value
 					end)
-					Bar.Size = UDim2.new(0, math.clamp(mouse.X - Bar.AbsolutePosition.X, 0, SizeChia), 0, 20)
+					Bar.Size = UDim2.new(0, math.clamp(mouse.X - Bar.AbsolutePosition.X, 0, XSize), 0, 20)
 				end)
 				releaseconnection = uis.InputEnded:Connect(function(Mouse)
-					if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or m.UserInputType == Enum.UserInputType.Touch then
-						local value = Precise and  tonumber(string.format("%.2f",(((tonumber(Max_Value) - tonumber(Min_Value)) / SizeChia) * Bar.AbsoluteSize.X) + tonumber(Min_Value))) or math.floor((((tonumber(Max_Value) - tonumber(Min_Value)) / SizeChia) * Bar.AbsoluteSize.X) + tonumber(Min_Value))
+					if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch then
+						local value = Precise and  tonumber(string.format("%.2f",(((tonumber(Max_Value) - tonumber(Min_Value)) / XSize) * Bar.AbsoluteSize.X) + tonumber(Min_Value))) or math.floor((((tonumber(Max_Value) - tonumber(Min_Value)) / SizeChia) * Bar.AbsoluteSize.X) + tonumber(Min_Value))
 
 						pcall(function()
 							sconfig.Callback(tonumber(value))
 							SliderValueText.Text = value
 						end)
-						Bar.Size = UDim2.new(0, math.clamp(mouse.X - Bar.AbsolutePosition.X, 0, SizeChia), 0, 20)
+						Bar.Size = UDim2.new(0, math.clamp(mouse.X - Bar.AbsolutePosition.X, 0, XSize), 0, 20)
 					end
 				end)
 				uis.InputEnded:Connect(function(m)
@@ -542,4 +542,4 @@ function nuhuh.SetupUI(config)
 	end
 	return tabs
 end
-return nuhuh
+return ReaperHub
