@@ -477,6 +477,7 @@ function ReaperHub.SetupUI(config)
 			kconpig = kconpig or {}
 			kconpig.Text = kconpig.Text or "keypig"
 			kconpig.DefaultKey = kconpig.DefaultKey or Enum.KeyCode.P
+			kconpig.ReturnCallbackKeyName = kconpig.ReturnCallbackKeyName or false
 			kconpig.Callback = kconpig.Callback or function() end
 			
 			local Keybind = Instance.new("Frame")
@@ -532,8 +533,11 @@ function ReaperHub.SetupUI(config)
 			game:GetService("UserInputService").InputBegan:connect(function(current, ok) 
 				if not ok then 
 					if current.KeyCode.Name == key then 
-						--print("bro pressed a "..tostring(key).." Key")
-						kconpig.Callback()
+						if kconpig.ReturnCallbackKeyName == true then
+							kconpig.Callback(current.KeyCode)
+						else
+							kconpig.Callback()
+						end
 					end
 				end
 			end)
